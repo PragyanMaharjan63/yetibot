@@ -21,17 +21,13 @@ function HeroSection() {
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-2xl"
         >
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-line bg-paper px-3 py-1.5 text-sm font-medium text-moss shadow-tiny">
-            <Sparkles size={15} />
-            Cute robot kit for real experiments
-          </div>
-
           <h1 className="max-w-[12ch] text-5xl font-semibold leading-[0.98] tracking-normal text-ink sm:text-6xl lg:text-7xl">
             Meet YetiBot.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-8 text-moss">
-            A small, buildable robot platform for learning motion, sensors, and control through
-            hands-on demos. Watch it move, learn the touch controls, then tune how it behaves.
+            A small companion robot designed to sit beside you while you study,
+            work, or focus. It responds to your touch, shows expressive
+            animations, and adds a calm, interactive presence to your desk.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">

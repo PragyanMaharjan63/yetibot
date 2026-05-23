@@ -17,8 +17,10 @@ function HowItWorksSection() {
               Small loop, surprisingly capable behavior.
             </h2>
             <p className="mt-5 leading-8 text-moss">
-              YetiBot stays understandable: read input, decide what changed, move the motors,
-              then repeat. That makes it easy to teach, debug, and upgrade.
+              YetiBot works in a simple loop: it senses your touch, thinks
+              through the programmed logic, shows the right animation, and
+              repeats the feedback so the robot stays responsive and easy to
+              control.
             </p>
           </div>
 

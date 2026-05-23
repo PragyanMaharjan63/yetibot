@@ -31,7 +31,7 @@ const views = [
     title: "Back view",
     label: "Type-C",
     icon: Usb,
-    description: "Charge and connect data through the lower back port.",
+    description: "Connect the power supply through the lower back port.",
     hotspot: "left-[58%] top-[8%] h-[34%] w-[34%]",
     focus: "left-[70%] top-[30%] h-7 w-[10%]",
   },
