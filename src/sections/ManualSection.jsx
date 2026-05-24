@@ -160,7 +160,7 @@ export default function ManualSection() {
                     type="button"
                     aria-label={`Show ${view.title}`}
                     onClick={() => setActiveView(view)}
-                    className={`absolute rounded-md border-2 transition ${
+                    className={`absolute cursor-pointer rounded-md border-2 transition ${
                       activeView.id === view.id
                         ? "border-rust bg-rust/10 shadow-soft"
                         : "border-transparent hover:border-clay hover:bg-clay/10"
@@ -258,7 +258,7 @@ export default function ManualSection() {
                     key={control.id}
                     type="button"
                     onClick={() => setActiveControl(control)}
-                    className={`rounded-md border px-3 py-3 text-left transition ${
+                    className={`rounded-md border cursor-pointer px-3 py-3 text-left transition ${
                       activeControl.id === control.id
                         ? "border-clay bg-clay text-ink"
                         : "border-paper/10 bg-paper/5 hover:border-paper/25"
@@ -294,7 +294,7 @@ function ViewButton({ view, isActive, onClick }) {
     <button
       type="button"
       onClick={onClick}
-      className={`flex items-center gap-3 rounded-md border p-3 text-left transition ${
+      className={`flex items-center cursor-pointer gap-3 rounded-md border p-3 text-left transition ${
         isActive
           ? "border-rust bg-paper shadow-tiny"
           : "border-transparent hover:bg-paper"

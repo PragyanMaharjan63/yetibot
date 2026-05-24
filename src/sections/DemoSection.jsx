@@ -22,8 +22,16 @@ function DemoSection({ activeVideo, onSelectVideo, onNextVideo, onPrevVideo }) {
             </h2>
           </div>
           <div className="flex gap-2">
-            <IconButton label="Previous video" onClick={onPrevVideo} icon={ChevronLeft} />
-            <IconButton label="Next video" onClick={onNextVideo} icon={ChevronRight} />
+            <IconButton
+              label="Previous video"
+              onClick={onPrevVideo}
+              icon={ChevronLeft}
+            />
+            <IconButton
+              label="Next video"
+              onClick={onNextVideo}
+              icon={ChevronRight}
+            />
           </div>
         </motion.div>
 
@@ -75,7 +83,7 @@ function VideoOption({ video, isActive, onClick }) {
     <button
       type="button"
       onClick={onClick}
-      className={`group grid grid-cols-[6.5rem_1fr] items-center gap-4 rounded-lg border p-3 text-left transition ${activeClasses}`}
+      className={`group grid grid-cols-[6.5rem_1fr] cursor-pointer items-center gap-4 rounded-lg border p-3 text-left transition ${activeClasses}`}
     >
       <video
         src={video.src}
@@ -89,7 +97,9 @@ function VideoOption({ video, isActive, onClick }) {
           {video.label}
         </span>
         <span className="mt-1 block font-semibold text-ink">{video.title}</span>
-        <span className="mt-1 block text-sm leading-6 text-moss">{video.text}</span>
+        <span className="mt-1 block text-sm leading-6 text-moss">
+          {video.text}
+        </span>
       </span>
     </button>
   );

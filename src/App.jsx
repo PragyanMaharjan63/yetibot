@@ -84,8 +84,8 @@ function App() {
         />
         {/* <VariantsSection /> */}
         <ManualSection />
+        <Features />
         <HowItWorksSection />
-        {/* <Features /> */}
         <Contact />
         <CtaSection />
         <Footer />

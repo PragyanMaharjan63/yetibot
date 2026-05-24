@@ -5,7 +5,7 @@ import { reveal } from "../lib/motion";
 
 function HowItWorksSection() {
   return (
-    <section id="how" className="px-5 py-16 sm:px-8 lg:px-12">
+    <section id="how" className="px-5 py-16 sm:px-8 lg:px-12 bg-oat">
       <div className="mx-auto max-w-7xl">
         <motion.div
           {...reveal}

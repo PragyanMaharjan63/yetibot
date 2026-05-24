@@ -2,8 +2,8 @@ import { Mail, Phone } from "lucide-react";
 import SectionLabel from "../components/SectionLabel";
 
 const contact = {
-  phone: "+977 9800000000",
-  email: "hello@yetibot.com",
+  phone: "+977 9743261983",
+  email: "roboticsclubofsmaterr@gmail.com",
 };
 
 export default function Contact() {
