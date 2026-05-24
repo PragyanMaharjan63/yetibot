@@ -8,6 +8,8 @@ import HeroSection from "./sections/HeroSection";
 import HowItWorksSection from "./sections/HowItWorksSection";
 import ManualSection from "./sections/ManualSection";
 import Loader from "./components/Loader";
+import Contact from "./sections/Contact";
+import Features from "./sections/featuresOfRobot";
 
 const MIN_LOADER_TIME = 1200;
 
@@ -40,7 +42,11 @@ function App() {
       window.setTimeout(resolve, MIN_LOADER_TIME);
     });
 
-    Promise.all([preloadImage("/favicon.png"), waitForPageLoad(), minimumTime]).then(() => {
+    Promise.all([
+      preloadImage("/favicon.png"),
+      waitForPageLoad(),
+      minimumTime,
+    ]).then(() => {
       window.requestAnimationFrame(() => {
         if (isMounted) {
           setLoading(false);
@@ -79,6 +85,8 @@ function App() {
         {/* <VariantsSection /> */}
         <ManualSection />
         <HowItWorksSection />
+        {/* <Features /> */}
+        <Contact />
         <CtaSection />
         <Footer />
       </main>
