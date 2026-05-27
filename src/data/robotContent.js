@@ -11,19 +11,19 @@ export const videos = [
   {
     title: "Prototype run",
     label: "Movement test",
-    src: "/resources/IMG_8583.mp4",
+    src: "/resources/yetiebothero.mp4",
     text: "See the bot moving in a real test setup with its compact build on display.",
   },
   {
     title: "Control check",
     label: "Live behavior",
-    src: "/resources/IMG_8584.mp4",
+    src: "/resources/yetibotTouch.mp4",
     text: "A closer look at how the bot responds while the prototype is being tested.",
   },
   {
     title: "Build detail",
     label: "Variant view",
-    src: "/resources/IMG_8585.mp4",
+    src: "/resources/yetiebothero.mp4",
     text: "Use this clip to understand the shape, parts, and practical feel of the robot.",
   },
 ];

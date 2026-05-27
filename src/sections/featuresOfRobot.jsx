@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { BatteryCharging, Hand, Monitor } from "lucide-react";
+import { Gamepad2, Hand, Monitor } from "lucide-react";
 import SectionLabel from "../components/SectionLabel";
 import { reveal } from "../lib/motion";
 
@@ -10,27 +10,30 @@ const features = [
     title: "Expressive display",
     label: "Face",
     icon: Monitor,
-    image: "/favicon.png",
-    imageClass: "object-contain p-8",
+    image: "/resources/feature1.jpeg",
+    imagePosition: "50% 56%",
+    imageScale: "scale-[1.24]",
     text: "YetiBot uses its front screen for expressions, status, and simple menu feedback.",
   },
   {
     id: "touch",
-    title: "Top touch control",
-    label: "Sensor",
+    title: "Touch menu feedback",
+    label: "Controls",
     icon: Hand,
-    image: "/resources/yetibot-manual-views.png",
-    imageClass: "object-cover object-[78%_78%]",
-    text: "Tap the tuft between the horns to open, scroll, select, or trigger a happy reaction.",
+    image: "/resources/feature2.jpeg",
+    imagePosition: "50% 61%",
+    imageScale: "scale-[1.2]",
+    text: "Clear on-screen prompts show how many taps open the menu, skip, or select an action.",
   },
   {
-    id: "power",
-    title: "Type-C charging",
-    label: "Power",
-    icon: BatteryCharging,
-    image: "/resources/yetibot-manual-views.png",
-    imageClass: "object-cover object-[75%_24%]",
-    text: "The rear Type-C port keeps charging and cable management simple.",
+    id: "game",
+    title: "Built-in play mode",
+    label: "Game",
+    icon: Gamepad2,
+    image: "/resources/feature3.jpeg",
+    imagePosition: "50% 56%",
+    imageScale: "scale-[1.22]",
+    text: "The display can switch from companion expressions into small interactive modes.",
   },
 ];
 
@@ -48,7 +51,7 @@ export default function Features() {
           </h2>
         </motion.div>
 
-        <div className="grid gap-5 lg:grid-cols-[0.82fr_1.18fr] lg:items-stretch">
+        <div className="grid gap-5 lg:grid-cols-[0.78fr_1.22fr] lg:items-stretch">
           <motion.div {...reveal} className="grid gap-3">
             {features.map((feature) => (
               <FeatureButton
@@ -62,22 +65,24 @@ export default function Features() {
 
           <motion.div
             {...reveal}
-            className="overflow-hidden rounded-lg border border-line bg-oat shadow-soft"
+            className="overflow-hidden rounded-lg border border-line bg-ink shadow-soft"
           >
-            <div className="grid min-h-full lg:grid-cols-[1fr_18rem]">
-              <div className="relative flex min-h-[22rem] items-center justify-center bg-white">
+            <div className="grid min-h-full lg:grid-cols-[minmax(0,1fr)_18rem]">
+              <div className="relative min-h-[24rem] overflow-hidden bg-ink sm:min-h-[32rem] lg:min-h-[36rem]">
                 <motion.img
                   key={activeFeature.id}
                   src={activeFeature.image}
                   alt={activeFeature.title}
-                  className={`h-full max-h-[30rem] w-full ${activeFeature.imageClass}`}
-                  initial={{ opacity: 0, scale: 0.96 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  className={`absolute inset-0 h-full w-full object-cover ${activeFeature.imageScale}`}
+                  style={{ objectPosition: activeFeature.imagePosition }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   transition={{ duration: 0.35 }}
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/28 via-transparent to-ink/10" />
               </div>
 
-              <div className="flex flex-col justify-between border-t border-line p-5 lg:border-l lg:border-t-0">
+              <div className="flex flex-col justify-between border-t border-white/10 bg-paper p-5 lg:border-l lg:border-t-0">
                 <div>
                   <span className="flex h-11 w-11 items-center justify-center rounded-md bg-paper text-moss shadow-tiny">
                     <ActiveIcon size={21} />
@@ -130,11 +135,12 @@ function FeatureButton({ feature, isActive, onClick }) {
           : "border-line bg-transparent hover:bg-oat"
       }`}
     >
-      <span className="overflow-hidden rounded-md border border-line bg-white">
+      <span className="relative h-20 overflow-hidden rounded-md border border-line bg-ink">
         <img
           src={feature.image}
           alt=""
-          className={`h-20 w-full ${feature.imageClass}`}
+          className={`absolute inset-0 h-full w-full object-cover ${feature.imageScale}`}
+          style={{ objectPosition: feature.imagePosition }}
           loading="lazy"
         />
       </span>
