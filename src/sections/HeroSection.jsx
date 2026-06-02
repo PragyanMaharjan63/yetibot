@@ -14,7 +14,7 @@ function HeroSection() {
     <section className="relative px-5 pb-16 pt-8 sm:px-8 lg:px-12">
       <div className="absolute inset-x-0 top-0 -z-10 h-[34rem] bg-oat" />
 
-      <div className="mx-auto mt-[20vh] grid max-w-7xl items-center gap-10 lg:grid-cols-[0.92fr_1.08fr]">
+      <div className="mx-auto mt-[5vh] sm:mt-[20vh] grid max-w-7xl items-center gap-10 lg:grid-cols-[0.92fr_1.08fr]">
         <motion.div
           initial={{ opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
