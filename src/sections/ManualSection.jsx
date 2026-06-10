@@ -113,40 +113,45 @@ export default function ManualSection() {
   const [activeControl, setActiveControl] = useState(controls[0]);
 
   return (
-    <section id="manual" className="px-6 py-24 lg:px-10 lg:py-32">
+    <section
+      id="manual"
+      className="px-4 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-32"
+    >
       <div className="mx-auto max-w-7xl">
         <motion.div
           {...reveal}
-          className="mb-14 flex flex-col justify-between gap-7 md:flex-row md:items-end"
+          className="mb-9 flex flex-col justify-between gap-5 sm:mb-14 sm:gap-7"
         >
-          <div className="max-w-xl">
-            <SectionLabel>Manual</SectionLabel>
-            <h2 className="mt-4 text-4xl font-semibold text-ink sm:text-5xl">
-              Interactive guide.
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-muted">
-              Explore the display, Type-C port, top sensor, and first setup
-              steps.
-            </p>
-          </div>
+          <div className="flex flex-col md:flex-row gap-10 justify-between">
+            <div className="flex flex-col">
+              <SectionLabel>Manual</SectionLabel>
+              <h2 className="mt-3 text-3xl font-semibold text-ink sm:mt-4 sm:text-5xl">
+                Interactive guide.
+              </h2>
+              <p className="mt-4 text-base leading-8 text-muted sm:mt-5 sm:text-lg">
+                Explore the display, Type-C port, top sensor, and first setup
+                steps.
+              </p>
+            </div>
 
-          <a
-            href={manualPdf}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex shrink-0 items-center justify-center gap-2.5 rounded-full border border-line bg-surface px-6 py-3.5 text-base font-semibold text-ink shadow-tiny transition-colors hover:border-line-strong hover:bg-stone-muted"
-          >
-            Download PDF
-            <Download size={18} />
-          </a>
+            <a
+              href={manualPdf}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex shrink-0 items-center justify-center gap-2.5 rounded-full border border-line bg-surface px-5 py-3 text-base font-semibold text-ink shadow-tiny transition-colors hover:border-line-strong hover:bg-stone-muted sm:px-6 sm:py-3.5 w-full md:w-fit self-end"
+            >
+              Download PDF
+              <Download size={18} />
+            </a>
+          </div>
         </motion.div>
 
-        <div className="grid gap-8 lg:grid-cols-2">
+        <div className="grid gap-6 sm:gap-8 lg:grid-cols-2">
           <motion.div
             {...reveal}
-            className="card-glow overflow-hidden rounded-3xl bg-paper"
+            className="card-glow overflow-hidden rounded-2xl bg-paper sm:rounded-3xl"
           >
-            <div className="grid lg:grid-cols-[1fr_14rem]">
+            <div className="grid">
               <div className="relative bg-white">
                 <img
                   src={manualDiagram}
@@ -175,7 +180,7 @@ export default function ManualSection() {
                 />
               </div>
 
-              <div className="grid border-t border-line p-3 lg:border-l lg:border-t-0">
+              <div className="grid grid-cols-1 gap-3 border-t border-line p-3 sm:grid-cols-2 sm:p-4">
                 {views.map((view) => (
                   <ViewButton
                     key={view.id}
@@ -190,40 +195,42 @@ export default function ManualSection() {
 
           <motion.div
             {...reveal}
-            className="flex flex-col justify-between rounded-3xl bg-deep p-7 text-paper shadow-soft lg:p-9"
+            className="flex flex-col justify-between rounded-2xl bg-deep p-5 text-paper shadow-soft sm:rounded-3xl sm:p-7 lg:p-9"
           >
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.1em] text-stone-light">
+              <p className="text-xs font-bold uppercase tracking-[0.1em] text-stone-light sm:text-sm">
                 Now viewing
               </p>
-              <div className="mt-5 flex items-start gap-4">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/10 text-stone-light">
-                  <activeView.icon size={21} />
+              <div className="mt-4 flex items-start gap-3 sm:mt-5 sm:gap-4">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10 text-stone-light sm:h-12 sm:w-12">
+                  <activeView.icon size={20} />
                 </span>
                 <div>
-                  <h3 className="text-2xl font-semibold">{activeView.title}</h3>
-                  <p className="mt-3 text-base leading-7 text-white/70">
+                  <h3 className="text-xl font-semibold sm:text-2xl">
+                    {activeView.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-white/70 sm:mt-3 sm:text-base sm:leading-7">
                     {activeView.description}
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-9 rounded-2xl border border-white/10 bg-white/5 p-6">
-              <div className="mb-6 flex items-center justify-between gap-4">
+            <div className="mt-7 rounded-2xl border border-white/10 bg-white/5 p-4 sm:mt-9 sm:p-6">
+              <div className="mb-5 flex items-center justify-between gap-4 sm:mb-6">
                 <div>
-                  <p className="text-sm font-bold uppercase tracking-[0.1em] text-stone-light">
+                  <p className="text-xs font-bold uppercase tracking-[0.1em] text-stone-light sm:text-sm">
                     Tap simulator
                   </p>
-                  <h3 className="mt-1.5 text-xl font-semibold">
+                  <h3 className="mt-1.5 text-lg font-semibold sm:text-xl">
                     {activeControl.action}
                   </h3>
                 </div>
-                <MousePointerClick className="text-stone-light" size={22} />
+                <MousePointerClick className="text-stone-light" size={20} />
               </div>
 
-              <div className="relative mx-auto mb-6 flex aspect-[5/3] max-w-sm items-center justify-center rounded-2xl bg-white text-ink">
-                <div className="rounded-xl border border-line px-7 py-4 text-center shadow-tiny">
+              <div className="relative mx-auto mb-5 flex aspect-[5/3] max-w-sm items-center justify-center rounded-2xl bg-white text-ink sm:mb-6">
+                <div className="rounded-xl border border-line px-5 py-3 text-center shadow-tiny sm:px-7 sm:py-4">
                   <span className="block text-xs font-semibold uppercase tracking-[0.1em] text-subtle">
                     Screen
                   </span>
@@ -231,7 +238,7 @@ export default function ManualSection() {
                     key={activeControl.screen}
                     initial={{ opacity: 0, y: 4 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mt-1.5 block text-2xl font-semibold"
+                    className="mt-1.5 block text-xl font-semibold sm:text-2xl"
                   >
                     {activeControl.screen}
                   </motion.span>
@@ -252,22 +259,22 @@ export default function ManualSection() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {controls.map((control) => (
                   <button
                     key={control.id}
                     type="button"
                     onClick={() => setActiveControl(control)}
-                    className={`cursor-pointer rounded-xl border px-4 py-3.5 text-left transition-colors ${
+                    className={`cursor-pointer rounded-xl border px-4 py-3 text-left transition-colors sm:py-3.5 ${
                       activeControl.id === control.id
                         ? "border-paper bg-paper text-ink"
                         : "border-white/10 hover:border-white/20 hover:bg-white/5"
                     }`}
                   >
-                    <span className="block text-base font-semibold">
+                    <span className="block text-sm font-semibold sm:text-base">
                       {control.pattern}
                     </span>
-                    <span className="mt-1 block text-sm leading-5 opacity-70">
+                    <span className="mt-1 block text-xs leading-5 opacity-70 sm:text-sm">
                       {control.detail}
                     </span>
                   </button>
@@ -277,7 +284,10 @@ export default function ManualSection() {
           </motion.div>
         </div>
 
-        <motion.div {...reveal} className="mt-8 grid gap-4 sm:grid-cols-3">
+        <motion.div
+          {...reveal}
+          className="mt-6 grid gap-3 sm:mt-8 sm:grid-cols-3 sm:gap-4"
+        >
           {careSteps.map((step) => (
             <CareStep key={step.title} step={step} />
           ))}
@@ -294,20 +304,26 @@ function ViewButton({ view, isActive, onClick }) {
     <button
       type="button"
       onClick={onClick}
-      className={`flex cursor-pointer items-center gap-4 rounded-xl p-4 text-left transition-colors ${
-        isActive ? "bg-surface" : "hover:bg-surface/70"
+      className={`flex cursor-pointer items-center gap-3 rounded-xl border p-3 text-left transition-colors sm:gap-4 sm:p-4 ${
+        isActive
+          ? "border-line-strong bg-surface"
+          : "border-transparent hover:border-line hover:bg-surface/70"
       }`}
     >
       <span
-        className={`flex h-10 w-10 items-center justify-center rounded-lg ${
+        className={`flex h-9 w-9 items-center justify-center rounded-lg sm:h-10 sm:w-10 ${
           isActive ? "bg-stone text-paper" : "bg-surface-alt text-stone"
         }`}
       >
         <Icon size={18} />
       </span>
       <span>
-        <span className="block text-base font-semibold text-ink">{view.label}</span>
-        <span className="mt-1 block text-sm text-muted">{view.title}</span>
+        <span className="block text-sm font-semibold text-ink sm:text-base">
+          {view.label}
+        </span>
+        <span className="mt-1 block text-xs text-muted sm:text-sm">
+          {view.title}
+        </span>
       </span>
     </button>
   );
@@ -317,13 +333,17 @@ function CareStep({ step }) {
   const Icon = step.icon;
 
   return (
-    <article className="flex items-center gap-4 rounded-2xl border border-line bg-paper p-5 shadow-tiny">
-      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-surface text-stone">
-        <Icon size={19} />
+    <article className="flex items-center gap-3 rounded-2xl border border-line bg-paper p-4 shadow-tiny sm:gap-4 sm:p-5">
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-surface text-stone sm:h-11 sm:w-11">
+        <Icon size={18} />
       </span>
       <div>
-        <h3 className="text-base font-semibold text-ink">{step.title}</h3>
-        <p className="mt-1 text-sm leading-6 text-muted">{step.text}</p>
+        <h3 className="text-sm font-semibold text-ink sm:text-base">
+          {step.title}
+        </h3>
+        <p className="mt-1 text-xs leading-5 text-muted sm:text-sm sm:leading-6">
+          {step.text}
+        </p>
       </div>
     </article>
   );
