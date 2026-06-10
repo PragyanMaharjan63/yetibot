@@ -70,7 +70,7 @@ function App() {
     <>
       <main
         aria-hidden={loading}
-        className={`min-h-screen overflow-hidden text-ink transition-opacity grid gap-y-25 duration-500 ${
+        className={`min-h-screen bg-paper text-ink transition-opacity duration-500 ${
           loading ? "opacity-0" : "opacity-100"
         }`}
       >

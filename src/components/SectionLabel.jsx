@@ -1,6 +1,6 @@
 function SectionLabel({ children }) {
   return (
-    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-rust">
+    <p className="text-sm font-bold uppercase tracking-[0.14em] text-stone">
       {children}
     </p>
   );

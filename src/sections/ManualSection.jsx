@@ -113,20 +113,20 @@ export default function ManualSection() {
   const [activeControl, setActiveControl] = useState(controls[0]);
 
   return (
-    <section id="manual" className="bg-oat px-5 py-16 sm:px-8 lg:px-12">
+    <section id="manual" className="px-6 py-24 lg:px-10 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <motion.div
           {...reveal}
-          className="mb-8 flex flex-col justify-between gap-5 md:flex-row md:items-end"
+          className="mb-14 flex flex-col justify-between gap-7 md:flex-row md:items-end"
         >
-          <div className="max-w-2xl">
-            <SectionLabel>Interactive manual</SectionLabel>
-            <h2 className="mt-3 text-3xl font-semibold tracking-normal sm:text-4xl">
-              Click the bot, then try the tap controls.
+          <div className="max-w-xl">
+            <SectionLabel>Manual</SectionLabel>
+            <h2 className="mt-4 text-4xl font-semibold text-ink sm:text-5xl">
+              Interactive guide.
             </h2>
-            <p className="mt-5 leading-8 text-moss">
-              A visual guide for the display, Type-C port, top sensor, and first
-              setup steps.
+            <p className="mt-5 text-lg leading-8 text-muted">
+              Explore the display, Type-C port, top sensor, and first setup
+              steps.
             </p>
           </div>
 
@@ -134,20 +134,20 @@ export default function ManualSection() {
             href={manualPdf}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-semibold text-paper shadow-soft transition hover:bg-moss"
+            className="inline-flex shrink-0 items-center justify-center gap-2.5 rounded-full border border-line bg-surface px-6 py-3.5 text-base font-semibold text-ink shadow-tiny transition-colors hover:border-line-strong hover:bg-stone-muted"
           >
-            Open PDF
-            <Download size={16} />
+            Download PDF
+            <Download size={18} />
           </a>
         </motion.div>
 
-        <div className="grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="grid gap-8 lg:grid-cols-2">
           <motion.div
             {...reveal}
-            className="overflow-hidden rounded-lg border border-line bg-paper h-fit shadow-soft"
+            className="card-glow overflow-hidden rounded-3xl bg-paper"
           >
-            <div className="grid gap-0 lg:grid-cols-[1fr_13rem]">
-              <div className="relative bg-white ">
+            <div className="grid lg:grid-cols-[1fr_14rem]">
+              <div className="relative bg-white">
                 <img
                   src={manualDiagram}
                   alt="YetiBot front, back, side, and touch sensor diagram"
@@ -162,8 +162,8 @@ export default function ManualSection() {
                     onClick={() => setActiveView(view)}
                     className={`absolute cursor-pointer rounded-md border-2 transition ${
                       activeView.id === view.id
-                        ? "border-rust bg-rust/10 shadow-soft"
-                        : "border-transparent hover:border-clay hover:bg-clay/10"
+                        ? "border-stone bg-stone/10"
+                        : "border-transparent hover:border-line-strong hover:bg-surface"
                     } ${view.hotspot}`}
                   />
                 ))}
@@ -171,11 +171,11 @@ export default function ManualSection() {
                 <motion.span
                   key={activeView.id}
                   layout
-                  className={`pointer-events-none absolute rounded-full border-2 border-rust bg-clay/30 shadow-soft ${activeView.focus}`}
+                  className={`pointer-events-none absolute rounded-full border-2 border-stone/40 bg-stone/10 ${activeView.focus}`}
                 />
               </div>
 
-              <div className="grid border-t border-line bg-oat/60 p-3 lg:border-l lg:border-t-0">
+              <div className="grid border-t border-line p-3 lg:border-l lg:border-t-0">
                 {views.map((view) => (
                   <ViewButton
                     key={view.id}
@@ -190,84 +190,84 @@ export default function ManualSection() {
 
           <motion.div
             {...reveal}
-            className="flex flex-col justify-between rounded-lg border border-line bg-ink p-5 text-paper shadow-soft"
+            className="flex flex-col justify-between rounded-3xl bg-deep p-7 text-paper shadow-soft lg:p-9"
           >
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-clay">
+              <p className="text-sm font-bold uppercase tracking-[0.1em] text-stone-light">
                 Now viewing
               </p>
-              <div className="mt-3 flex items-start gap-3">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-paper/10">
+              <div className="mt-5 flex items-start gap-4">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/10 text-stone-light">
                   <activeView.icon size={21} />
                 </span>
                 <div>
                   <h3 className="text-2xl font-semibold">{activeView.title}</h3>
-                  <p className="mt-2 leading-7 text-paper/75">
+                  <p className="mt-3 text-base leading-7 text-white/70">
                     {activeView.description}
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-7 rounded-md border border-paper/10 bg-paper/5 p-4">
-              <div className="mb-4 flex items-center justify-between gap-3">
+            <div className="mt-9 rounded-2xl border border-white/10 bg-white/5 p-6">
+              <div className="mb-6 flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-clay">
+                  <p className="text-sm font-bold uppercase tracking-[0.1em] text-stone-light">
                     Tap simulator
                   </p>
-                  <h3 className="mt-1 text-xl font-semibold">
+                  <h3 className="mt-1.5 text-xl font-semibold">
                     {activeControl.action}
                   </h3>
                 </div>
-                <MousePointerClick className="text-clay" size={22} />
+                <MousePointerClick className="text-stone-light" size={22} />
               </div>
 
-              <div className="relative mx-auto mb-4 flex aspect-[5/3] max-w-xs items-center justify-center rounded-lg border border-paper/15 bg-paper text-ink">
-                <div className="rounded-md border-2 border-ink px-5 py-3 text-center shadow-tiny">
-                  <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-moss">
+              <div className="relative mx-auto mb-6 flex aspect-[5/3] max-w-sm items-center justify-center rounded-2xl bg-white text-ink">
+                <div className="rounded-xl border border-line px-7 py-4 text-center shadow-tiny">
+                  <span className="block text-xs font-semibold uppercase tracking-[0.1em] text-subtle">
                     Screen
                   </span>
                   <motion.span
                     key={activeControl.screen}
-                    initial={{ opacity: 0, y: 6 }}
+                    initial={{ opacity: 0, y: 4 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mt-1 block text-2xl font-semibold"
+                    className="mt-1.5 block text-2xl font-semibold"
                   >
                     {activeControl.screen}
                   </motion.span>
                 </div>
 
-                <div className="absolute -top-3 left-1/2 flex -translate-x-1/2 gap-1">
+                <div className="absolute -top-3 left-1/2 flex -translate-x-1/2 gap-1.5">
                   {Array.from({ length: activeControl.taps }).map(
                     (_, index) => (
                       <motion.span
                         key={`${activeControl.id}-${index}`}
-                        initial={{ opacity: 0, y: -8, scale: 0.72 }}
+                        initial={{ opacity: 0, y: -6, scale: 0.8 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         transition={{ delay: index * 0.08 }}
-                        className="h-3 w-3 rounded-full bg-clay"
+                        className="h-2.5 w-2.5 rounded-full bg-stone"
                       />
                     ),
                   )}
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-2 gap-3">
                 {controls.map((control) => (
                   <button
                     key={control.id}
                     type="button"
                     onClick={() => setActiveControl(control)}
-                    className={`rounded-md border cursor-pointer px-3 py-3 text-left transition ${
+                    className={`cursor-pointer rounded-xl border px-4 py-3.5 text-left transition-colors ${
                       activeControl.id === control.id
-                        ? "border-clay bg-clay text-ink"
-                        : "border-paper/10 bg-paper/5 hover:border-paper/25"
+                        ? "border-paper bg-paper text-ink"
+                        : "border-white/10 hover:border-white/20 hover:bg-white/5"
                     }`}
                   >
-                    <span className="block text-sm font-semibold">
+                    <span className="block text-base font-semibold">
                       {control.pattern}
                     </span>
-                    <span className="mt-1 block text-xs opacity-75">
+                    <span className="mt-1 block text-sm leading-5 opacity-70">
                       {control.detail}
                     </span>
                   </button>
@@ -277,9 +277,9 @@ export default function ManualSection() {
           </motion.div>
         </div>
 
-        <motion.div {...reveal} className="mt-5 grid gap-3 sm:grid-cols-3">
-          {careSteps.map((step, index) => (
-            <CareStep key={step.title} step={step} index={index} />
+        <motion.div {...reveal} className="mt-8 grid gap-4 sm:grid-cols-3">
+          {careSteps.map((step) => (
+            <CareStep key={step.title} step={step} />
           ))}
         </motion.div>
       </div>
@@ -294,39 +294,36 @@ function ViewButton({ view, isActive, onClick }) {
     <button
       type="button"
       onClick={onClick}
-      className={`flex items-center cursor-pointer gap-3 rounded-md border p-3 text-left transition ${
-        isActive
-          ? "border-rust bg-paper shadow-tiny"
-          : "border-transparent hover:bg-paper"
+      className={`flex cursor-pointer items-center gap-4 rounded-xl p-4 text-left transition-colors ${
+        isActive ? "bg-surface" : "hover:bg-surface/70"
       }`}
     >
-      <span className="flex h-10 w-10 items-center justify-center rounded-md bg-oat text-moss">
-        <Icon size={19} />
+      <span
+        className={`flex h-10 w-10 items-center justify-center rounded-lg ${
+          isActive ? "bg-stone text-paper" : "bg-surface-alt text-stone"
+        }`}
+      >
+        <Icon size={18} />
       </span>
       <span>
-        <span className="block font-semibold text-ink">{view.label}</span>
-        <span className="mt-1 block text-xs leading-5 text-moss">
-          {view.title}
-        </span>
+        <span className="block text-base font-semibold text-ink">{view.label}</span>
+        <span className="mt-1 block text-sm text-muted">{view.title}</span>
       </span>
     </button>
   );
 }
 
-function CareStep({ step, index }) {
+function CareStep({ step }) {
   const Icon = step.icon;
 
   return (
-    <article className="flex items-center gap-4 rounded-lg border border-line bg-paper p-4 shadow-tiny">
-      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-oat text-moss">
-        <Icon size={20} />
+    <article className="flex items-center gap-4 rounded-2xl border border-line bg-paper p-5 shadow-tiny">
+      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-surface text-stone">
+        <Icon size={19} />
       </span>
       <div>
-        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-rust">
-          Step {index + 1}
-        </p>
-        <h3 className="mt-1 font-semibold">{step.title}</h3>
-        <p className="mt-1 text-sm leading-6 text-moss">{step.text}</p>
+        <h3 className="text-base font-semibold text-ink">{step.title}</h3>
+        <p className="mt-1 text-sm leading-6 text-muted">{step.text}</p>
       </div>
     </article>
   );

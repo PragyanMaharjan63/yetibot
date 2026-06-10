@@ -1,15 +1,13 @@
 function IconButton({ label, onClick, icon: Icon }) {
   return (
-
-    
     <button
       type="button"
       aria-label={label}
       title={label}
       onClick={onClick}
-      className="flex h-11 w-11 items-center justify-center rounded-full border border-line bg-paper text-ink shadow-tiny transition hover:border-fern hover:text-moss"
+      className="flex h-12 w-12 items-center justify-center rounded-full border border-line bg-paper text-stone shadow-tiny transition-colors hover:border-line-strong hover:bg-surface"
     >
-      <Icon size={18} />
+      <Icon size={19} />
     </button>
   );
 }

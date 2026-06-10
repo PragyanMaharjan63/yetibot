@@ -1,10 +1,8 @@
 function Stat({ value, label }) {
   return (
-    <div className="rounded-lg border border-line bg-paper/75 p-4 shadow-tiny">
-      <div className="text-xl font-semibold">{value}</div>
-      <div className="mt-1 text-xs font-medium uppercase tracking-[0.14em] text-moss">
-        {label}
-      </div>
+    <div className="border-t border-line-strong pt-5">
+      <div className="text-3xl font-semibold tracking-tight text-ink">{value}</div>
+      <div className="mt-2 text-sm font-medium text-muted">{label}</div>
     </div>
   );
 }
